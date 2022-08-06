@@ -433,21 +433,21 @@ std::string exportRender(std::string resultpath, std::vector<nodeInfo> &nodes, b
         total_width += nattype_width;
 
     //generating information
-    std::string gentime = "Generated at " + getTime(3);
+    std::string gentime = "Generated at " + getTime(3) + "by imkcp.在线测速";
     std::string traffic = "Traffic used : " + speedCalc((double)total_traffic) + ". ";
     std::string about = "By Stair Speedtest Reborn " VERSION ".";
-    std::string title = "  Stair Speedtest Reborn Result Table ( " VERSION " )  ";
+    std::string title = "  测速by imkcp  ";
     //SSRSpeed style
     if(export_as_ssrspeed)
     {
-        traffic += "Time used: " + secondToString(test_duration) + ". Online Node(s) : [" + std::to_string(onlines) + "/" + std::to_string(node_count) + "]";
+        traffic += "测速时间: " + secondToString(test_duration) + ". 可用节点 : [" + std::to_string(onlines) + "/" + std::to_string(node_count) + "]";
         title = "  SSRSpeed Result Table ( v2.7.2 )  ";
     }
     else
     {
         if(export_as_new_style)
-            traffic += "Time used : " + secondToString(test_duration) + ". ";
-        traffic += "Working Node(s) : [" + std::to_string(onlines) + "/" + std::to_string(node_count) + "]";
+            traffic += "测速时间 : " + secondToString(test_duration) + ". ";
+        traffic += "可用节点 : [" + std::to_string(onlines) + "/" + std::to_string(node_count) + "]";
     }
 
     final_width = total_width;
@@ -508,7 +508,7 @@ std::string exportRender(std::string resultpath, std::vector<nodeInfo> &nodes, b
         png.line(line_offset, line_index * height_line + 1, line_offset, (line_index + 1) * height_line, border_red, border_green, border_blue);//right side
         this_x_offset += width_all[j];
         //packet loss
-        plot_text_utf8(&png, font, fontsize, this_x_offset + calcCenterOffset(pkLoss_widths[i], pkLoss_width), this_y_offset, 0.0, nodes[i].pkLoss, text_red, text_green, text_blue);
+        plot_text_utf8(&png, font, fontsize, this_x_offset + calcCenterOffset(pk_widths[i], pkLoss_width), this_y_offset, 0.0, nodes[i].pkLoss, text_red, text_green, text_blue);
         j++;
         line_offset += width_all[j];
         png.line(line_offset, line_index * height_line + 1, line_offset, (line_index + 1) * height_line, border_red, border_green, border_blue);//right side
