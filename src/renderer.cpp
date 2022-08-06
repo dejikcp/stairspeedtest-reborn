@@ -508,8 +508,7 @@ std::string exportRender(std::string resultpath, std::vector<nodeInfo> &nodes, b
         png.line(line_offset, line_index * height_line + 1, line_offset, (line_index + 1) * height_line, border_red, border_green, border_blue);//right side
         this_x_offset += width_all[j];
         //packet loss
-        plot_text_utf8(&png, font, fontsize, this_x_offset + calcCenterOffset(pk_widths[i], pkLoss_width), this_y_offset, 0.0, nodes[i].pkLoss, text_red, text_green, text_blue);
-        j++;
+        plot_text_utf8(&png, font, fontsize, this_x_offset + calcCenterOffset(pkLoss_widths[i], pkLoss_width), this_y_offset, 0.0, nodes[i].pkLoss, text_red, text_green, text_blue);        j++;
         line_offset += width_all[j];
         png.line(line_offset, line_index * height_line + 1, line_offset, (line_index + 1) * height_line, border_red, border_green, border_blue);//right side
         this_x_offset += width_all[j];
